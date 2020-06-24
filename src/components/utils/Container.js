@@ -6,10 +6,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
+    height: '100vh'
   },
   grid: {
     maxWidth: '1080px',
-    padding: '24px'
+    padding: '48px 24px 24px 24px'
   }
 }))
 

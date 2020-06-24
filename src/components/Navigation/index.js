@@ -9,9 +9,12 @@ import Sidebar from './Sidebar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    position: 'fixed',
     flexGrow: 1,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    background: '#fff',
+    boxShadow: 'none'
   },
   navbar: {
     width: '1080px'
@@ -24,7 +27,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   menuTitle: {
-    paddingRight: '1rem'
+    paddingRight: '1rem',
+    color: '#333'
+  },
+  title: {
+    color: '#333'
   }
 }));
 
@@ -38,10 +45,10 @@ function Nav({location}) {
   }
 
   return (
-    <AppBar position="static" className={classes.root}>
+    <AppBar className={classes.root}>
       <div className={classes.navbar}>
         <Toolbar className={classes.toolbar}>
-          <Typography variant="h6">
+          <Typography variant="h6" className={classes.title}>
             {path ? path : 'PC'}
           </Typography>
           <div className={classes.menubar}>

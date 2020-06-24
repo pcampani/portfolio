@@ -11,7 +11,7 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import ContactMailOutlinedIcon from '@material-ui/icons/ContactMailOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
 import PermPhoneMsgOutlinedIcon from '@material-ui/icons/PermPhoneMsgOutlined';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 
 import Bio from './Bio'
@@ -71,12 +71,12 @@ export default function Sidebar() {
     >
       <List>
         {Links.title.map((text, index) => (
-          <Link to={text === 'Home' ? '/' : `/${text.toLowerCase()}`} className={classes.link} key={index}>
-          <ListItem button key={text}>
-            <ListItemIcon>{Links.icons[index]}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-          </Link>
+          <NavLink activeClassName='active' to={text === 'Home' ? '/' : `/${text.toLowerCase()}`} className={classes.link} key={index}>
+            <ListItem button key={text}>
+              <ListItemIcon>{Links.icons[index]}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          </NavLink>
         ))}
       </List>
       <Divider />
@@ -97,7 +97,7 @@ export default function Sidebar() {
               height={18}
               strokeWidth={3}
               rotate={0}
-              color='#fff'
+              color='#333'
               borderRadius={5}
               animationDuration={0.125}
             />

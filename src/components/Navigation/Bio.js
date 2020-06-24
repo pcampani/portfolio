@@ -44,9 +44,21 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(7),
     height: theme.spacing(7),
   },
+  link: {
+    transition: 'transform .3s ease',
+    '&:hover': {
+      transform: 'scale(1.2)'
+    }
+  }
 }));
 
 export default function Resume() {
+  const icons = [
+    { name: 'facebook', component: <FacebookIcon />, url: 'https://www.facebook.com/philip.campani' },
+    { name: 'linkedin', component: <LinkedInIcon />, url: 'https://www.linkedin.com/in/philip-campani-853678137/'},
+    { name: 'twitter', component: <TwitterIcon />, url: '' },
+    { name: 'github', component: <GitHubIcon />, url: 'https://github.com/pcampani' }
+  ]
   const classes = useStyles();
 
   return (
@@ -74,26 +86,13 @@ export default function Resume() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="facebook">
-          <Link>
-            <FacebookIcon />
+        {icons.map(icon => (
+          <IconButton aria-label={icon.name}>
+          <Link href={icon.url} target='_blank' color='textPrimary' className={classes.link}>
+            {icon.component}
           </Link>
         </IconButton>
-        <IconButton aria-label="linkedin">
-          <Link>
-            <LinkedInIcon />
-          </Link>
-        </IconButton>
-        <IconButton aria-label="twitter">
-          <Link>
-            <TwitterIcon />
-          </Link>
-        </IconButton>
-        <IconButton aria-label="github">
-          <Link href="https://github.com/pcampani" target='_blank'>
-            <GitHubIcon />
-          </Link>
-        </IconButton>
+        ))}
       </CardActions>
     </Card>
   );
