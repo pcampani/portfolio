@@ -11,9 +11,13 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import mini from '../../assets/img/mini.png';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import Link from '@material-ui/core/Link';
+
+import mini from '../../assets/img/logo.jpg';
 import pic from '../../assets/img/photo.jpg';
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: 'none'
   },
   media: {
-    height: '200px'
+    
+    height: '225px'
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -36,16 +41,13 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     backgroundColor: red[500],
+    width: theme.spacing(7),
+    height: theme.spacing(7),
   },
 }));
 
 export default function Resume() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Card className={classes.root}>
@@ -56,11 +58,13 @@ export default function Resume() {
         title="Philip Campani"
         subheader="Web Developer"
       />
-      <CardMedia
-        className={classes.media}
-        image={mini}
-        title="Philip Campani"
-      />
+       <Link href='https://www.freepik.com/free-photos-vectors/people' target='_blank'>
+        <CardMedia
+          className={classes.media}
+          image={mini}
+          title="People vector created by freepik - www.freepik.com"
+        />
+     </Link>
       <CardContent>
       <Typography variant="h6" color="textPrimary" component="p">
           Tech Stack
@@ -70,20 +74,25 @@ export default function Resume() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton aria-label="facebook">
+          <Link>
+            <FacebookIcon />
+          </Link>
         </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
+        <IconButton aria-label="linkedin">
+          <Link>
+            <LinkedInIcon />
+          </Link>
         </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
+        <IconButton aria-label="twitter">
+          <Link>
+            <TwitterIcon />
+          </Link>
+        </IconButton>
+        <IconButton aria-label="github">
+          <Link href="https://github.com/pcampani" target='_blank'>
+            <GitHubIcon />
+          </Link>
         </IconButton>
       </CardActions>
     </Card>

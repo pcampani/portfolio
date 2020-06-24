@@ -13,6 +13,11 @@ module.exports = {
 		filename: isDevelopment ? '[name].js' : '[name].[hash].js'
 	},
 	mode: isDevelopment ? 'development' : 'production',
+	optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 	module: {
 		rules: [
 			{
